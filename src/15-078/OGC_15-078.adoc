@@ -41,7 +41,7 @@ endif::[]
 |Publication Date:          2016-07-26
 |External identifier of this OGC(R) document:    http://www.opengis.net/doc/is/sensorthings/1.0
 |URL for this OGC(R) document:        http://docs.opengeospatial.org/is/15-078r6/15-078r6.html
-|Additional Formats (informative):      https://portal.opengeospatial.org/files/15-078r6 https://portal.opengeospatial.org/files/15-078r6/docx
+|Additional Formats (informative):      https://portal.opengeospatial.org/files/15-078r6[PDF] https://portal.opengeospatial.org/files/15-078r6/docx[DOCX]
 |Please refer to the http://docs.opengeospatial.org/is/15-078r6/errata.html[errata] for this document, +
 which may include some normative corrections.
 |Internal reference number of this OGC(R) document:  15-078r6
