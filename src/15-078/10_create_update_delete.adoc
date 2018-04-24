@@ -115,13 +115,10 @@ Special case #2: In the context of IoT, many Observations’ resultTime and phen
 
 ==== Request
 
-**HTTP Method:: POST
-
-**URI Pattern:** SERVICE_ROOT_URI/COLLECTION_NAME
-
-**Header:** Content-Type: application/json
-
-**Message Body:** A single valid entity representation for the specified collection.
+HTTP Method:: POST
+URI Pattern:: SERVICE_ROOT_URI/COLLECTION_NAME
+Header:: Content-Type: application/json
+Message Body:: A single valid entity representation for the specified collection.
 
 **Example {counter:examples}: create a Thing entity**
 
