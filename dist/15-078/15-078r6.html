@@ -5999,20 +5999,23 @@ its representation is format-specific. The final partial set of items SHALL NOT 
 <h4 id="_request"><a class="anchor" href="#_request"></a>10.2.1. Request</h4>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">**HTTP Method</dt>
+<dt class="hdlist1">HTTP Method</dt>
 <dd>
 <p>POST</p>
 </dd>
+<dt class="hdlist1">URI Pattern</dt>
+<dd>
+<p>SERVICE_ROOT_URI/COLLECTION_NAME</p>
+</dd>
+<dt class="hdlist1">Header</dt>
+<dd>
+<p>Content-Type: application/json</p>
+</dd>
+<dt class="hdlist1">Message Body</dt>
+<dd>
+<p>A single valid entity representation for the specified collection.</p>
+</dd>
 </dl>
-</div>
-<div class="paragraph">
-<p><strong>URI Pattern:</strong> SERVICE_ROOT_URI/COLLECTION_NAME</p>
-</div>
-<div class="paragraph">
-<p><strong>Header:</strong> Content-Type: application/json</p>
-</div>
-<div class="paragraph">
-<p><strong>Message Body:</strong> A single valid entity representation for the specified collection.</p>
 </div>
 <div class="paragraph">
 <p><strong>Example 26: create a Thing entity</strong></p>
@@ -10017,7 +10020,7 @@ to identify, if each entity has the mandatory properties and relations, and fulf
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-29 17:35:23 CEST
+Last updated 2018-04-19 16:20:03 CEST
 </div>
 </div>
 </body>
