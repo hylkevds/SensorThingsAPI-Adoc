@@ -5640,7 +5640,7 @@ see <a href="#tab-value-codes-obstypes">Table 12</a>.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">bool geo.intersects(Point p0, Polygon p1)</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">geo.intersects(location, geography&#8217;POLYGON 30 10, 10 20, 20 40, 40 40, 30 10')</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">geo.intersects(location, geography&#8217;POLYGON ((30 10, 10 20, 20 40, 40 40, 30 10))')</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Spatial Relationship Functions</strong></p></td>
@@ -5651,7 +5651,7 @@ see <a href="#tab-value-codes-obstypes">Table 12</a>.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">bool st_disjoint</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">st_disjoint(location, geography&#8217;POLYGON 30 10, 10 20, 20 40, 40 40, 30 10')</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">st_disjoint(location, geography&#8217;POLYGON ((30 10, 10 20, 20 40, 40 40, 30 10))')</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">bool st_touches</p></td>
@@ -5659,11 +5659,11 @@ see <a href="#tab-value-codes-obstypes">Table 12</a>.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">bool st_within</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">st_within(location, geography&#8217;POLYGON 30 10, 10 20, 20 40, 40 40, 30 10')</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">st_within(location, geography&#8217;POLYGON ((30 10, 10 20, 20 40, 40 40, 30 10))')</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">bool st_overlaps</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">st_overlaps(location, geography&#8217;POLYGON 30 10, 10 20, 20 40, 40 40, 30 10')</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">st_overlaps(location, geography&#8217;POLYGON ((30 10, 10 20, 20 40, 40 40, 30 10))')</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">bool st_crosses</p></td>
@@ -5679,7 +5679,7 @@ see <a href="#tab-value-codes-obstypes">Table 12</a>.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">bool st_relate</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">st_relate(location, geography&#8217;POLYGON 30 10, 10 20, 20 40, 40 40, 30 10', 'T<strong><strong></strong></strong>**')</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">st_relate(location, geography&#8217;POLYGON ((30 10, 10 20, 20 40, 40 40, 30 10))', 'T<strong><strong></strong></strong>**')</p></td>
 </tr>
 </tbody>
 </table>
@@ -10017,7 +10017,7 @@ to identify, if each entity has the mandatory properties and relations, and fulf
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-19 16:20:03 CEST
+Last updated 2018-04-29 17:35:23 CEST
 </div>
 </div>
 </body>
