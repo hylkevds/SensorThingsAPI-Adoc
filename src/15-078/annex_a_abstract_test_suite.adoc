@@ -336,9 +336,9 @@ This section contains the conformance classes for the SensorThings API filtering
 !Check if the service supports $expand and $select as defined in this specification.
 
 !Test method
-!Send requests with $expand following the different usages as defined in the requirement \http://www.opengis.net/spec/iot_sensing/1.0/req/<<requirement-aw>>, check if the server returns appropriate result as defined in this specification.
+!Send requests with $expand following the different usages as defined in the requirement \http://www.opengis.net/spec/iot_sensing/1.0/req/<<requirement-aw>>, check if the server returns appropriate results as defined in this specification.
 
-Send requests with the $select option following the different usages as defined in the requirement \http://www.opengis.net/spec/iot_sensing/1.0/req/<<requirement-ax>>, check if the server returns appropriate result as defined in this specification.
+Send requests with the $select option following the different usages as defined in the requirement \http://www.opengis.net/spec/iot_sensing/1.0/req/<<requirement-ax>>, check if the server returns appropriate results as defined in this specification.
 !===
 
 
@@ -383,7 +383,7 @@ Check when a client use a query option that doesn't support by the service, if t
 !Check if the service supports the $orderby query option as defined in this specification.
 
 !Test method
-!Send a query with the $orderby query option, check if the server returns appropriate result as defined in this specification.
+!Send a query with the $orderby query option, check if the server returns appropriate results as defined in this specification.
 
 !===
 
@@ -405,11 +405,11 @@ Check when a client use a query option that doesn't support by the service, if t
 !Check if the service supports the $top, $skip and $count query option as defined in this specification.
 
 !Test method
-!Send a query with the $top query option, check if the server returns appropriate result as defined in this specification.
+!Send a query with the $top query option, check if the server returns appropriate results as defined in this specification.
 
-Send a query with the $skip query option, check if the server returns appropriate result as defined in this specification.
+Send a query with the $skip query option, check if the server returns appropriate results as defined in this specification.
 
-Send a query with the $count query option, check if the server returns appropriate result as defined in this specification.
+Send a query with the $count query option, check if the server returns appropriate results as defined in this specification.
 !===
 
 
@@ -430,11 +430,15 @@ Send a query with the $count query option, check if the server returns appropria
 !Check if the service supports the $filter query option and the built-in filter operators and built-in filter functions as defined in this specification.
 
 !Test method
-!Send a query with the $filter query option, check if the server returns appropriate result as defined in this specification.
+!Send a query with the $filter query option, check if the server returns appropriate results as defined in this specification.
 
-Send a query with the $filter query option for each built-in filter operator, check if the server returns appropriate result as defined in this specification.
+Send a query with the $filter query option for each built-in filter operator, check if the server returns appropriate results as defined in this specification.
 
-Send a query with the $filter query option for each built-in filter function, check if the server returns appropriate result as defined in this specification.
+Send a query with the $filter query option for each built-in filter function, check if the server returns appropriate results as defined in this specification.
+
+Send a query with a $filter query option that requires casting of non-string values to string values, check if the server returns the appropriate results as defined in this specification.
+
+Send a query with a $filter query option, that filters on a field of type Any that contains mixed data types, comparing against each data type. Check if the service returns the correct results.
 !===
 
 
@@ -536,6 +540,9 @@ Create an Observation entity and the Observation creation request does not inclu
 
 
 Create a Location for a Thing entity, check if the Thing has a HistoricalLocation created by the service according to the Location entity.
+
+
+For each field with datatype Any, create an entity with a value of each json data type allowed in fields of datatype any, and check if the value is returned correctly.
 !===
 
 

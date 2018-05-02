@@ -89,3 +89,96 @@ Based on the IoT reference model, SensorThings API falls into the scope of the S
 .IoT Reference Model (adapted from [ITU-T Y.2060])
 image::IotRefModel.png[IoT Reference Model (adapted from [ITU-T Y.2060])]
 
+
+[[datatypes]]
+=== SensorThings API and Data Types
+
+WARNING: TODO: insert general information about data types used in this document
+
+[[tab-data-types]]
+.List of defined data types
+[cols="<20,<20,60a"]
+|===
+|Data Type |Definition |Encoding (JSON/url)
+
+
+|CharacterString
+|same as Edm.String
+|
+JSON:: as a normal string. +
+example: "This is a string value"
+url:: Quoted with single quotes ('), url encoded +
+example: %27This%20is%20a%20string%20value%27
+
+
+|URI
+|TODO: add definition
+|
+JSON:: as a string.
+url:: Quoted with single quotes ('), url encoded
+
+
+|ValueCode
+|TODO: add definition
+|
+JSON:: as a string.
+url:: Quoted with single quotes ('), url encoded
+
+
+|JSON_Object
+|a valid JSON object
+|
+JSON:: as normal.
+url:: Not allowed
+
+
+|TM_Instant
+|A single point in time.
+|
+JSON:: as a string, ISO 8601 Combined date and time with time-zone format. +
+example: "2016-09-19T13:52:31+00:00"
+url:: ISO 8601 Combined date and time with time-zone. (Not quoted, url encoded) +
+example: 2016-09-19T13%3A52%3A31%2B00%3A00
+
+
+|TM_Period
+|A time interval, consisting of a starting point and an end point.
+|
+JSON:: as a string, ISO 8601 time interval. +
+example: "2007-03-01T13:00:00Z/2008-05-11T15:30:00+00:00"
+url:: ISO 8601 time interval. (Not quoted, url encoded) +
+example: 2007-03-01T13%3A00%3A00Z%2F2008-05-11T15%3A30%3A00%2B00%3A00
+
+
+|GM_Envelope
+|TODO: add definition
+|TODO: add definition
+
+
+|DQ_Element
+|TODO: add definition
+|TODO: add definition
+
+
+|Any
+|any valid JSON value, i.e. one of [string, number, object, array, true, false, null]
+|
+JSON:: as normal
+url:: String: quoted with single quotes and url encoded +
+number, true, false, null: unquoted, +
+object,array: not allowed.
+
+|===
+
+==== Special Issues with Data Type Any
+
+A SensorThings API service MUST return values of properties of the data type Any using the same JSON data type used to set (insert/update) the value of the property. If a service can not handle the datatype supplied on entity creation or update, the service MUST return a HTTP error 501 Not Implemented.
+
+
+
+
+
+
+
+
+
