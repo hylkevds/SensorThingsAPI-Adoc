@@ -17,7 +17,7 @@ after_failure:
   - docker logs generate
 
 after_success:
-  - cd /tmp/gh-pages; cp -R $TRAVIS_BUILD_DIR/dist/* .
+  - cd /tmp/gh-pages;mkdir -p "${TRAVIS_BRANCH}";cd "${TRAVIS_BRANCH}"; cp -R $TRAVIS_BUILD_DIR/dist/* .
   - git config user.name "${GH_USER_NAME}"
   - git config user.email "{GH_USER_EMAIL}"
   - git add . ; git commit -m "Deploy to GitHub Pages"
