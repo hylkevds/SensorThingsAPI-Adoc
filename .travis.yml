@@ -16,7 +16,7 @@ after_failure:
   - docker logs generate
 
 after_success:
-  - cd /tmp; echo ${DEPLOY_PRIVATE_KEY} > id_rsa_deploy; chmod 600 id_rsa_deploy; ssh-add id_rsa_deploy;
+  - cd /tmp; echo ${DEPLOY_PRIVATE_KEY} > id_rsa_deploy; chmod 600 id_rsa_deploy; eval "$(ssh-agent -s)"; ssh-add id_rsa_deploy;
   - cd /tmp; git clone --quiet --depth 2 --branch gh-pages "${GH_REF}" gh-pages > /dev/null 2>&1
   - cd /tmp/gh-pages;mkdir -p "${TRAVIS_BRANCH}";cd "${TRAVIS_BRANCH}"; cp -R $TRAVIS_BUILD_DIR/dist/* .
   - git config user.name "${GH_USER_NAME}"
