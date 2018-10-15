@@ -852,6 +852,10 @@ Req <<req-bd>>: <<requirement-bd>>
 |`+/Observations?$filter=(result sub 5) gt 10+`
 |===
 
+When filtering on time intervals, all intervals are considered half-open: ``start \<= time < end``, meaning the end time of the interval is not part of the interval and two intervals with only one time point in common do not overlap.
+
+When comparing time intervals, lt and gt map to before and after as defined in <<tab-built-in-query-functions>>. For example, ``X le Y`` means the start time of ``X`` is less than or equal to the start time of ``Y`` and the end time of ``X`` is less than or equal to the end time of ``Y``, while ``X ge Y`` means the start time of ``X`` is larger than or equal to that of ``Y`` and the end time of ``X`` is larger than or equal to that of ``Y``. When comparing a time interval to a time instant using ``gt, lt, ge, le`` the time instant is treated as a time interval with the same start and end time.
+
 
 ====== Built-in query functions
 
@@ -873,7 +877,7 @@ Req <<req-be>>: <<requirement-be>>
 
 [[tab-built-in-query-functions]]
 .Built-in Query Functions
-[cols="<40,<60"]
+[cols="50a,<50"]
 |===
 |Function |Example
 
@@ -950,6 +954,79 @@ Req <<req-be>>: <<requirement-be>>
 
 |maxdatetime
 |`+resultTime eq maxdatetime()+`
+
+
+2+|**DateTime Interval Functions**
+
+|before(interval\|time i1, interval\|time i2) +
+True for:
+
+* __two intervals__: if the end point of the first is smaller than or equal to the start point of the second.
+* __two times__: if the first is smaller than the second.
+* __a time and an interval__: if the time is smaller than the start of the interval.
+* __an interval and a time__: if the time is larger than or equal to the end of the interval.
+
+|before(2016-07-26T09:56:00Z, validTime) +
+before(2016-01-02T01:01:01.000Z/2016-01-03T23:59:59.999Z, validTime)
+
+
+|after(interval\|time i1, interval\|time i2) +
+True for:
+
+* __two intervals__: if the start point of the first is larger than or equal to the end point of the second. +
+* __two times__: if the first is larger than the second. +
+* __a time and an interval__: if the time is larger than or equal to the end of the interval. +
+* __an interval and a time__: if the time is smaller than the start of the interval.
+
+|after(2016-07-26T09:56:00Z, validTime) +
+after(2016-01-02T01:01:01.000Z/2016-01-03T23:59:59.999Z, validTime)
+
+
+|meets(interval\|time i1, interval\|time i2) +
+True for:
+
+* __two intervals__: if the end-point of one equals the start-point of the other. +
+* __a time and an interval__: if the time equals the start- or end-point of the interval. +
+* __two times__: if they are equal.
+
+|meets(2016-07-26T09:56:00Z, validTime) +
+meets(2016-01-02T01:01:01.000Z/2016-01-03T23:59:59.999Z, validTime)
+
+
+|during(interval\|time i1, interval i2)
+
+True if the start-point of i1 is greater or equal to the start-point of i2 and less than the end-point of i2 and the end-point of i1 is less than or equal to the end-point of i2.
+
+|during(2016-07-26T09:56:00Z, validTime) +
+during(2016-01-02T01:01:01.000Z/2016-01-03T23:59:59.999Z, validTime)
+
+
+|overlaps(interval\|time i1, interval\|time i2)
+
+True if any points in the two intervals are the same. (Note: the end-point of an interval is not part of the interval.
+
+|overlaps(2016-07-26T09:56:00Z, validTime) +
+overlaps(2016-01-02T01:01:01.000Z/2016-01-03T23:59:59.999Z, validTime)
+
+
+|starts(interval\|time i1, interval\|time i2) +
+True for:
+
+* __two intervals__: if the start points of the two intervals are equal. +
+* __a time and an interval__: if the time equals the start point of the interval. +
+* __two times__: if they are equal.
+
+|starts(validTime, 2016-01-02T01:01:01.000Z/2016-01-03T23:59:59.999Z)
+
+
+|finishes(interval\|time i1, interval\|time i2) +
+True for:
+
+* __two intervals__: if the end points of the two intervals are equal. +
+* __a time and an interval__: if the time equals the end point of the interval. +
+* __two times__: if they are equal.
+
+|finishes(validTime, 2016-01-02T01:01:01.000Z/2016-01-03T23:59:59.999Z)
 
 
 2+|**Math Functions**
